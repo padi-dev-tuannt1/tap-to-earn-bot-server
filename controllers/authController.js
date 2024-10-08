@@ -12,7 +12,7 @@ function setInitData(res, initData) {
 const token = '7658315769:AAFj-YincZkZ_1M7-55FX1drdwtwTkzDJXo';
 
 function authenticateUser(req, res, next) {
-  const [,authType, authData = ''] = (req.header('authorization') || '').split(' ');
+  const [authType, authData = ''] = (req.header('authorization') || '').split(' ');
     switch (authType) {
         case 'tma':
           try {
@@ -26,7 +26,6 @@ function authenticateUser(req, res, next) {
           }
         // ... other authorization methods.
         default:
-          console.log("duma")
           return next(new Error('Unauthorized'));
       }
 }

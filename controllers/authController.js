@@ -9,7 +9,7 @@ const { validate, parse } =  require('@telegram-apps/init-data-node');
 function setInitData(res, initData) {
     res.locals.initData = initData;
   }
-const token = '7658315769:AAFj-YincZkZ_1M7-55FX1drdwtwTkzDJXo';
+const token = process.env.PRIVATE_TOKEN;
 
 function authenticateUser(req, res, next) {
   const [authType, authData = ''] = (req.header('authorization') || '').split(' ');

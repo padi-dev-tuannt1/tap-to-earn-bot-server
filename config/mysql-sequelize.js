@@ -1,18 +1,15 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize, DataTypes } = require('@sequelize/core');
+const { MySqlDialect } = require('@sequelize/mysql');
 
-const sequelize = new Sequelize(
-  process.env.MYSQL_DB,
-  process.env.MYSQL_USER,
-  process.env.MYSQL_PASSWORD,
-  {
-    host: process.env.MYSQL_HOST,
-    dialect: "mysql",
-    timezone: "+00:00",
-  }
-);
+const sequelize = new Sequelize({
+  dialect: MySqlDialect,
+  database: 'tap_to_earn',
+  user: 'root',
+  password: '123456',
+  host: 'localhost',
+  port: 3306,
+});
 
 module.exports = {
-  sequelize,
-  DataTypes,
-  Sequelize,
+  sequelize,  Sequelize, DataTypes
 };
